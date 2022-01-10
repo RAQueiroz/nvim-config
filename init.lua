@@ -1,7 +1,9 @@
-require('plugins')
-require('config')
-require('config-nvim-tree')
-require('config-barbar')
-require('config-completion')
+require('user.plugins')
+require('user.options')
+require('user.nvim-tree')
+require('user.barbar')
+require('user.cmp')
+require('user.lsp')
 
 require'lspconfig'.tsserver.setup{}
+

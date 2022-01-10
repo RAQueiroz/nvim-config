@@ -79,7 +79,7 @@ cmp.setup {
       'i',
       's',
     }),
-    ['<Tab>'] = cmp.mapping(function(fallback)
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -101,6 +101,8 @@ cmp.setup {
         vim_item.kind
       )
       vim_item.menu = ({
+        nvim_lsp = '[LSP]',
+        nvim_lua = '[Nvim Lua]',
         luasnip = '[Snippet]',
         buffer = '[Buffer]',
         path = '[Path]',
@@ -109,6 +111,8 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },

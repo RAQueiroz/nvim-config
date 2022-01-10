@@ -1,6 +1,6 @@
-vim.cmd [[packadd packer.nvim]] 
+vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'psliwka/vim-smoothie'
@@ -40,10 +40,11 @@ return require('packer').startup(function()
 
   -- completion
   use 'hrsh7th/nvim-cmp' -- autocomplete
-  use 'hrsh7th/cmp-buffer'  
-  use 'hrsh7th/cmp-path'  
-  use 'hrsh7th/cmp-cmdline'  
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'hrsh7th/cmp-nvim-lua' -- NVIM source for nvim-cmp
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   -- snippets
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
