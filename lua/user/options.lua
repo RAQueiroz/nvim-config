@@ -8,3 +8,7 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.cmdheight = 2
+vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.opt.smartindent = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
