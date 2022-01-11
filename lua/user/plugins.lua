@@ -40,6 +40,8 @@ packer.init {
 
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   use 'psliwka/vim-smoothie'
 
@@ -87,4 +89,11 @@ return packer.startup(function(use)
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   -- snippets
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
