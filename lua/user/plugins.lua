@@ -42,6 +42,7 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "numToStr/Comment.nvim" -- Easily comment stuff
 
   use 'psliwka/vim-smoothie'
 
@@ -51,8 +52,7 @@ return packer.startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons',
-    },
-    --config = function() require'nvim-tree'.setup {} end
+    }
   }
 
   use {
@@ -65,19 +65,12 @@ return packer.startup(function(use)
     'williamboman/nvim-lsp-installer',
   }
 
-  --use {
-    --'nvim-treesitter/nvim-treesitter',
-    --branch = vim.fn.has 'nvim-0.6' == 1 and 'master' or '0.5-compat',
-    --config = function ()
-      --require('lvim.core.treesitter').setup()
-    --end,
-    --run = ':TSUpdate'
-  --}
-
   use {
-    'JoosepAlviste/nvim-ts-context-commentstring',
-    event = 'BufReadPost',
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
+
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- completion
   use 'hrsh7th/nvim-cmp' -- autocomplete
@@ -92,6 +85,10 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+  use "p00f/nvim-ts-rainbow"
+
+  -- Git
+  use "lewis6991/gitsigns.nvim"
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
