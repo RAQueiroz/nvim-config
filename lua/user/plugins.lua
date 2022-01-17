@@ -92,6 +92,8 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
+  use "folke/which-key.nvim"
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

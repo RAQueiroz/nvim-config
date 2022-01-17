@@ -13,5 +13,7 @@ vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.termguicolors = true
-vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
-vim.opt.splitright = true                       -- force all vertical splits to go to the right of current window
+-- force all horizontal splits to go below current window
+-- ( make sure that the new splits go to the correct places. Good for nvim-tree and opening stuff with telescope)
+vim.opt.splitbelow = true
+vim.opt.splitright = true
