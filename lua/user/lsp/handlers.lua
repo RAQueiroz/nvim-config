@@ -85,7 +85,7 @@ end
   end
 
   M.on_attach = function(client, bufnr)
-    if client.name == 'tsserver'then
+    if client.name == 'tsserver' or client.name == 'gopls' then
       client.resolved_capabilities.document_formatting = false
     end
     lsp_keymaps(bufnr)
