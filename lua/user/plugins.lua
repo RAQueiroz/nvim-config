@@ -44,7 +44,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 
-  use 'karb94/neoscroll.nvim'
+	use("karb94/neoscroll.nvim")
 
 	use("folke/tokyonight.nvim")
 
@@ -55,10 +55,10 @@ return packer.startup(function(use)
 		},
 	})
 
-	use({
-		"romgrk/barbar.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
+	-- use({
+	-- 	"romgrk/barbar.nvim",
+	-- 	requires = { "kyazdani42/nvim-web-devicons" },
+	-- })
 
 	-- LSP
 	use({
@@ -91,8 +91,28 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
-  use "folke/which-key.nvim"
+	use("folke/which-key.nvim")
+
+	use({
+		"folke/twilight.nvim",
+		config = function()
+			require("twilight").setup({})
+		end,
+	})
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({})
+		end,
+	})
+
+	use("ggandor/lightspeed.nvim")
+
+	use("rmagatti/auto-session")
+
+	use "beauwilliams/focus.nvim"
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

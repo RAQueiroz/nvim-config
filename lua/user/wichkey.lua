@@ -79,7 +79,15 @@ local opts = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+  ["a"] = {
+    name = "Focus",
+    s = {"<cmd>FocusSplitNicely<CR>", "New Split"},
+    h = {"<cmd>FocusSplitLeft<CR>", "Split Left"},
+    j = {"<cmd>FocusSplitDown<CR>", "Split Down"},
+    k = {"<cmd>FocusSplitUp<CR>", "Split Up"},
+    l = {"<cmd>FocusSplitRight<CR>", "Split Right"},
+    c = {"<cmd>q<CR>", "Close Split"}
+  },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",

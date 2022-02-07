@@ -1,3 +1,9 @@
+local status_ok, _ = pcall(require, "barbar")
+if not status_ok then
+  return
+end
+
+
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
