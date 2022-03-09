@@ -55,11 +55,6 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- use({
-	-- 	"romgrk/barbar.nvim",
-	-- 	requires = { "kyazdani42/nvim-web-devicons" },
-	-- })
-
 	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
@@ -83,7 +78,12 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lua") -- NVIM source for nvim-cmp
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
 	-- snippets
-	use("L3MON4D3/LuaSnip") -- Snippets plugin
+	use({
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("user.snippets")
+		end,
+	})
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -112,7 +112,7 @@ return packer.startup(function(use)
 
 	use("rmagatti/auto-session")
 
-	use "beauwilliams/focus.nvim"
+	use("beauwilliams/focus.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

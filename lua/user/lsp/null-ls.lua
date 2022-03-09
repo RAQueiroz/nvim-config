@@ -10,7 +10,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettier,
 		formatting.stylua,
-    formatting.goimports,
-    formatting.gofumpt,
+		formatting.goimports,
+		formatting.gofumpt,
 	},
 })
