@@ -92,9 +92,7 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-
 	use("folke/which-key.nvim")
-
 	use({
 		"folke/twilight.nvim",
 		config = function()
@@ -107,12 +105,11 @@ return packer.startup(function(use)
 			require("zen-mode").setup({})
 		end,
 	})
-
 	use("ggandor/lightspeed.nvim")
-
 	use("rmagatti/auto-session")
-
 	use("beauwilliams/focus.nvim")
+
+  use("mfussenegger/nvim-dap")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
