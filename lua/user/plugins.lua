@@ -69,6 +69,7 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- completion
@@ -113,7 +114,6 @@ return packer.startup(function(use)
 	use("yamatsum/nvim-cursorline")
 
 	-- dap
-
 	use("mfussenegger/nvim-dap")
 	use("Pocco81/DAPInstall.nvim")
 
