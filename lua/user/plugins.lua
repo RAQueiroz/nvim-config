@@ -46,7 +46,9 @@ return packer.startup(function(use)
 
 	use("karb94/neoscroll.nvim")
 
+	-- colorschemes
 	use("folke/tokyonight.nvim")
+	use("rmehri01/onenord.nvim")
 
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -91,7 +93,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use("folke/which-key.nvim")
 	use({
 		"folke/twilight.nvim",
@@ -108,8 +110,12 @@ return packer.startup(function(use)
 	use("ggandor/lightspeed.nvim")
 	use("rmagatti/auto-session")
 	use("beauwilliams/focus.nvim")
+	use("yamatsum/nvim-cursorline")
 
-  use("mfussenegger/nvim-dap")
+	-- dap
+
+	use("mfussenegger/nvim-dap")
+	use("Pocco81/DAPInstall.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
