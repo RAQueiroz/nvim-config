@@ -109,7 +109,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use("ggandor/lightspeed.nvim")
-	use("rmagatti/auto-session")
 	use("beauwilliams/focus.nvim")
 	use("yamatsum/nvim-cursorline")
 
