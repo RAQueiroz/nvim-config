@@ -41,6 +41,11 @@ lsp_installer.on_server_ready(function(server)
 		local cssls_opts = require("user.lsp.settings.cssls")
 		opts = vim.tbl_deep_extend("force", cssls_opts, opts)
 	end
+
+	if server.name == "rust_analyzer" then
+		local rust_analyzer_opts = require("user.lsp.settings.rust_analyzer")
+		opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
+	end
 	-- This setup() function is exactly the same as lspconfig's setup function.
 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 	if server.name == "eslint" then
