@@ -1,7 +1,7 @@
-local ls_loaded, ls = pcall(require, "luasnip")
+local ls_loaded, ls = pcall(require, 'luasnip')
 if not ls_loaded then
-	vim.notify("luasnip not loaded")
-	return
+    vim.notify 'luasnip not loaded'
+    return
 end
 
 local s = ls.snippet
@@ -17,10 +17,10 @@ local t = ls.text_node
 -- local ai = require("luasnip.nodes.absolute_indexer")
 
 ls.snippets = {
-	lua = {
-		s("wow", { t("expanded") }),
-	},
-	javascript = {
-		s("wow", { t("now yes") }),
-	},
+    lua = {
+        s('wow', { t 'expanded' }),
+    },
+    javascript = {
+        s('wow', { t 'now yes' }),
+    },
 }
