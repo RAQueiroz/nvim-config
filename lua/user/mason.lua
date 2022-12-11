@@ -20,7 +20,7 @@ mason.setup {
 
 mason_lspconfig.setup()
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -45,6 +45,13 @@ end
 
 require('lspconfig').sumneko_lua.setup {
     on_attach = on_attach,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' },
+            },
+        },
+    },
 }
 
 require('lspconfig').tsserver.setup {

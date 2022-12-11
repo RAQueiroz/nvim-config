@@ -51,12 +51,6 @@ return packer.startup(function(use)
     -- Lint & Format
     use 'jose-elias-alvarez/null-ls.nvim'
 
-    --[[ -- Formatter ]]
-    --[[ use 'mhartington/formatter.nvim' ]]
-
-    --[[ -- Linter ]]
-    --[[ use 'mfussenegger/nvim-lint' ]]
-
     -- diagnostics
     use {
         'folke/trouble.nvim',
@@ -82,14 +76,13 @@ return packer.startup(function(use)
     use 'folke/tokyonight.nvim'
     use 'rmehri01/onenord.nvim'
 
-    --[[ use { ]]
-    --[[     'kyazdani42/nvim-tree.lua', ]]
-    --[[     requires = { ]]
-    --[[         'kyazdani42/nvim-web-devicons', ]]
-    --[[     }, ]]
-    --[[ } ]]
-
-    use 'SidOfc/carbon.nvim'
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+        tag = 'nightly', -- optional, updated every week. (see issue #1193)
+    }
 
     -- Treesitter
     use {
@@ -142,6 +135,8 @@ return packer.startup(function(use)
     -- dap
     use 'mfussenegger/nvim-dap'
     use 'Pocco81/DAPInstall.nvim'
+
+    use 'Shatur/neovim-session-manager'
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()

@@ -92,7 +92,7 @@ local mappings = {
         "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         'Buffers',
     },
-    ['e'] = { '<cmd>Fcarbon<cr>', 'Explorer' },
+    ['e'] = { '<cmd>NvimTreeToggle<cr>', 'File Explorer' },
     ['w'] = { '<cmd>w!<CR>', 'Save' },
     ['q'] = { '<cmd>q!<CR>', 'Quit' },
     ['c'] = { '<cmd>Bdelete!<CR>', 'Close Buffer' },
@@ -139,13 +139,13 @@ local mappings = {
     l = {
         name = 'LSP',
         a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Action' },
-        d = {
-            '<cmd>Telescope lsp_document_diagnostics<cr>',
-            'Document Diagnostics',
-        },
         w = {
             '<cmd>Telescope lsp_workspace_diagnostics<cr>',
             'Workspace Diagnostics',
+        },
+        d = {
+            '<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<cr>',
+            'Show current line diagnostic',
         },
         f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format' },
         i = { '<cmd>LspInfo<cr>', 'Info' },
@@ -194,6 +194,11 @@ local mappings = {
         name = 'Diffview',
         o = { '<cmd>DiffviewOpen<cr>', 'Open' },
         c = { '<cmd>DiffviewClose<cr>', 'Close' },
+    },
+
+    x = {
+        name = 'Trouble',
+        x = { '<cmd>TroubleToggle<cr>', 'Toggle' },
     },
 }
 

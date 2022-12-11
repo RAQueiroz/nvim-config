@@ -11,7 +11,7 @@ local sources = {
 }
 
 -- get from env var FORMAT_WITH_PRETTIER
-if format_with_prettier then
+if Format_with_prettier then
     table.insert(sources, null_ls.builtins.formatting.prettier)
 else
     local eslint_builtin = null_ls.builtins.formatting.eslint
