@@ -8,6 +8,11 @@ if not mason_lspconfig_ok then
     return
 end
 
+local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
+if not lspconfig_ok then
+    return
+end
+
 mason.setup {
     ui = {
         icons = {
@@ -43,7 +48,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 end
 
-require('lspconfig').sumneko_lua.setup {
+lspconfig.lua_ls.setup {
     on_attach = on_attach,
     settings = {
         Lua = {
@@ -54,6 +59,10 @@ require('lspconfig').sumneko_lua.setup {
     },
 }
 
-require('lspconfig').tsserver.setup {
+lspconfig.tsserver.setup {
+    on_attach = on_attach,
+}
+
+lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
 }

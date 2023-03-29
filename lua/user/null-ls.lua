@@ -3,20 +3,9 @@ if not has_loaded then
     return
 end
 
-local augroup = vim.api.nvim_create_augroup('LspFormatting', { clear = true })
-
-local sources = {
-    null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.rustfmt,
-}
-
--- get from env var FORMAT_WITH_PRETTIER
-if Format_with_prettier then
-    table.insert(sources, null_ls.builtins.formatting.prettier)
-else
-    local eslint_builtin = null_ls.builtins.formatting.eslint
-    eslint_builtin.condition = function(utils)
-        utils.root_has_file {
+local eslint_condition = {
+    condition = function(utils)
+        return utils.root_has_file {
             'eslint.config.js',
             '.eslintrc',
             '.eslintrc.js',
@@ -25,10 +14,17 @@ else
             '.eslintrc.yml',
             '.eslintrc.json',
         }
-    end
-    table.insert(sources, eslint_builtin)
-end
+    end,
+}
 
+local sources = {
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.rustfmt,
+    null_ls.builtins.formatting.eslint.with(eslint_condition),
+    null_ls.builtins.diagnostics.eslint.with(eslint_condition),
+}
+
+local augroup = vim.api.nvim_create_augroup('LspFormatting', { clear = true })
 null_ls.setup {
     debug = true,
     on_attach = function(client, bufnr)
@@ -38,7 +34,7 @@ null_ls.setup {
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    vim.lsp.buf.format { bufnr = bufnr }
+                    vim.lsp.buf.format { bufnr = bufnr, timeout_ms = 2000 }
                 end,
             })
         end
